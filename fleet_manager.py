@@ -144,10 +144,8 @@ def count_officers(ranks):
 
 def main():
     names, ranks, divs, ids = init_database()
-
     while True:
-        choice = display_menu()
-
+        choice = display_menu()   
         if choice == '1':
             display_roster(names, ranks, divs, ids)
         elif choice == '2':
@@ -155,7 +153,7 @@ def main():
         elif choice == '3':
             remove_member(names, ranks, divs, ids)
         elif choice == '4':
-            update_rank(names, ranks, ids)
+            update_rank(ranks, ids)
         elif choice == '5':
             search_crew(names, ranks, divs, ids)
         elif choice == '6':
