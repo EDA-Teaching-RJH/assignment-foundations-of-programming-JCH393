@@ -57,4 +57,21 @@ def remove_member(names, ranks, divs, ids):
     ids.pop(idx)
     print('Crew member removed succesfully.')
 
+def update_rank(ranks, ids):
+    try:
+        member_id = int(input("Enter member ID: "))
+    except ValueError:
+        print("ID must be a number.")
+        return
 
+    if member_id not in ids:
+        print("Error: ID not found.")
+        return
+
+    idx = ids.index(member_id)
+
+    new_rank = input("Enter new rank: ").strip()
+
+    ranks[idx] = new_rank
+
+    print("Rank updated successfully.")
