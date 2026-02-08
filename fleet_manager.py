@@ -19,3 +19,28 @@ def display_menu():
     choice = input("Select option: ").strip()
     return choice
 
+def add_member(names, ranks, divs, ids):
+    valid_ranks = ['Captain','Lieutenant Commander','Lieutenant','Commander']
+    name = input('Enter name: ').strip()
+    rank = input('Enter rank: ').strip()
+    div = input('Enter division: ').strip()
+
+    try:
+        new_id = int(input('Enter ID: '))
+    except ValueError:
+        print('ID must be a number.')
+        return
+    
+    if new_id in ids:
+        print('Error: ID already exists.')
+        return
+    if rank not in valid_ranks:
+        print('Error: Invalid rank.')
+        return
+    names.append(name)
+    ranks.append(rank)
+    divs.append(div)
+    ids.append(new_id)
+    print('Crew member added successfully.')
+
+
