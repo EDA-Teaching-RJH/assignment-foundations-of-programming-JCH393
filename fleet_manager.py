@@ -59,19 +59,27 @@ def remove_member(names, ranks, divs, ids):
 
 def update_rank(ranks, ids):
     try:
-        member_id = int(input("Enter member ID: "))
+        member_id = int(input('Enter member ID: '))
     except ValueError:
-        print("ID must be a number.")
+        print('ID must be a number.')
         return
 
     if member_id not in ids:
-        print("Error: ID not found.")
+        print('Error: ID not found.')
         return
 
     idx = ids.index(member_id)
 
-    new_rank = input("Enter new rank: ").strip()
+    new_rank = input('Enter new rank: ').strip()
 
     ranks[idx] = new_rank
 
-    print("Rank updated successfully.")
+    print('Rank updated successfully.')
+
+def display_roster(names, ranks, divs, ids):
+    print('\n--- CREW ROSTER ---')
+    print(f'{'ID':<6} {'Name':<20} {'Rank':<22} {'Division'}')
+    print('-' * 30)
+
+    for i in range(len(names)):
+        print(f'{ids[i]:<6} {names[i]:<20} {ranks[i]:<22} {divs[i]}')
