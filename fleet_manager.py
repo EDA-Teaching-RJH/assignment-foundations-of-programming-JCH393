@@ -34,9 +34,11 @@ def add_member(names, ranks, divs, ids):
     if new_id in ids:
         print('Error: ID already exists.')
         return
+    
     if rank not in valid_ranks:
         print('Error: Invalid rank.')
         return
+    
     names.append(name)
     ranks.append(rank)
     divs.append(div)
@@ -48,8 +50,10 @@ def remove_member(names, ranks, divs, ids):
         rem_id = int(input('Enter ID to remove: '))
     except ValueError:
         print('ID must be a number.')
+    
     if rem_id not in ids:
         print('Error: ID not found')
+
     idx = ids.index(rem_id)
     names.pop(idx)
     ranks.pop(idx)
@@ -69,11 +73,8 @@ def update_rank(ranks, ids):
         return
 
     idx = ids.index(member_id)
-
     new_rank = input('Enter new rank: ').strip()
-
     ranks[idx] = new_rank
-
     print('Rank updated successfully.')
 
 def display_roster(names, ranks, divs, ids):
@@ -87,7 +88,6 @@ def display_roster(names, ranks, divs, ids):
 def search_crew(names, ranks, divs, ids):
     term = input('Enter search term: ').strip().lower()
     found = False
-
     print('\n--- SEARCH RESULTS ---')
 
     for i in range(len(names)):
@@ -100,7 +100,6 @@ def search_crew(names, ranks, divs, ids):
 
 def filter_by_division(names, divs):
     division = input('Enter division (Command, Operations, Security, Engineering): ').strip()
-
     print(f'\n--- {division.upper()} DIVISION ---')
     found = False
 
