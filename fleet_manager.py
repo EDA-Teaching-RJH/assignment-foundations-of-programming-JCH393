@@ -79,7 +79,22 @@ def update_rank(ranks, ids):
 def display_roster(names, ranks, divs, ids):
     print('\n--- CREW ROSTER ---')
     print(f'{'ID':<6} {'Name':<20} {'Rank':<22} {'Division'}')
-    print('-' * 30)
+    print('-' * 90)
 
     for i in range(len(names)):
         print(f'{ids[i]:<6} {names[i]:<20} {ranks[i]:<22} {divs[i]}')
+
+def search_crew(names, ranks, divs, ids):
+    term = input('Enter search term: ').strip().lower()
+    found = False
+
+    print('\n--- SEARCH RESULTS ---')
+
+    for i in range(len(names)):
+        if term in names[i].lower():
+            print(f'{ids[i]} - {names[i]} ({ranks[i]}, {divs[i]})')
+            found = True
+
+    if found == False:
+        print('No matching crew members found.')
+
