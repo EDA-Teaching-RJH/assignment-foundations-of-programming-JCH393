@@ -8,13 +8,18 @@ def init_database():
 def display_menu():
     student_name = input('What is your full name? ')
 
-    print("\n--- MENU ---")
-    print("Student logged in:", student_name)
-    print("1. View Crew")
-    print("2. Add Crew")
-    print("3. Remove Crew")
-    print("4. Analyze Data")
-    print("5. Exit")
+    print('\n--- MENU ---')
+    print('Student logged in:', student_name)
+    print('1. Display Crew Roster')
+    print('2. Add Crew Member')
+    print('3. Remove Crew Member')
+    print('4. Update Rank')
+    print('5. Search Crew')
+    print('6. Filter by Division')
+    print('7. Calculate Payroll')
+    print('8. Count Officers')
+    print('9. Analyze Data')
+    print('10. Exit')
     
     choice = input("Select option: ").strip()
     return choice
@@ -136,3 +141,36 @@ def count_officers(ranks):
             count += 1
 
     return count
+
+def main():
+    names, ranks, divs, ids = init_database()
+
+    while True:
+        choice = display_menu()
+
+        if choice == '1':
+            display_roster(names, ranks, divs, ids)
+        elif choice == '2':
+            add_member(names, ranks, divs, ids)
+        elif choice == '3':
+            remove_member(names, ranks, divs, ids)
+        elif choice == '4':
+            update_rank(names, ranks, ids)
+        elif choice == '5':
+            search_crew(names, ranks, divs, ids)
+        elif choice == '6':
+            filter_by_division(names, divs)
+        elif choice == '7':
+            total = calculate_payroll(ranks)
+            print('Total payroll cost:', total)
+        elif choice == '8':
+            officers = count_officers(ranks)
+            print('Number of senior officers:', officers)
+        elif choice == '9':
+            print('Total crew members:', len(names))
+        elif choice == '10':
+            print('Exiting system.')
+            break
+        else:
+            print('Invalid option.')
+main()
