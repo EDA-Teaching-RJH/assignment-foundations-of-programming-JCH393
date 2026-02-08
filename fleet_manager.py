@@ -111,3 +111,20 @@ def filter_by_division(names, divs):
 
     if not found:
         print('No crew members found in this division.')
+
+def calculate_payroll(ranks):
+    total = 0
+
+    for rank in ranks:
+        if rank == "Captain":
+            total += 1000
+        elif rank == "Commander":
+            total += 800
+        elif rank == "Lieutenant Commander":
+            total += 600
+        elif rank == "Lieutenant":
+            total += 400
+        elif rank == "Ensign":
+            total += 200
+    
+    return total
