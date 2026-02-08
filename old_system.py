@@ -26,7 +26,7 @@ def run_system_monolith():
         opt = input("Select option: ")
         
         if opt == "1":  #'==' instead of '='
-            print("Current Crew List:")
+            print("Current Crew List:") 
             
             for i in range(10):
                 print(n[i] + " - " + r[i]) 
@@ -88,4 +88,4 @@ def run_system_monolith():
             
         print("End of cycle.")
 
-run_system_monolith
+run_system_monolith() #added '()' to function name
